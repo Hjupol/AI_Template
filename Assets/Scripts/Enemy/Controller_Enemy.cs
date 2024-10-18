@@ -21,7 +21,7 @@ public class Controller_Enemy : MonoBehaviour
         Restart._Restart.OnRestart += Reset;
         destination = new Vector3(UnityEngine.Random.Range(-10, 12), 1, UnityEngine.Random.Range(-12, 9));
         agent = GetComponent<NavMeshAgent>();
-        player = GameObject.Find("Player");
+        player = GameObject.Find("PP");
     }
 
     public void Reset()
@@ -29,22 +29,22 @@ public class Controller_Enemy : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    internal virtual void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Projectile"))
-        {
-            Destroy(collision.gameObject);
-            Destroy(this.gameObject);
-        }
-        if (collision.gameObject.CompareTag("CannonBall"))
-        {
-            Destroy(this.gameObject);
-        }
-        if (collision.gameObject.CompareTag("Bumeran"))
-        {
-            Destroy(this.gameObject);
-        }
-    }
+    //internal virtual void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Projectile"))
+    //    {
+    //        Destroy(collision.gameObject);
+    //        Destroy(this.gameObject);
+    //    }
+    //    if (collision.gameObject.CompareTag("CannonBall"))
+    //    {
+    //        Destroy(this.gameObject);
+    //    }
+    //    if (collision.gameObject.CompareTag("Bumeran"))
+    //    {
+    //        Destroy(this.gameObject);
+    //    }
+    //}
 
     private void OnDestroy()
     {

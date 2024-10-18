@@ -34,6 +34,7 @@ public class Controller_Player : MonoBehaviour
 
     private void Reset()
     {
+        //Para reiniciar la posicion del Player
         this.transform.position = startPos;
     }
 
@@ -41,7 +42,6 @@ public class Controller_Player : MonoBehaviour
     {
         movement.x = Input.GetAxis("Horizontal");
         movement.z = Input.GetAxis("Vertical");
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
     public virtual void FixedUpdate()
@@ -52,11 +52,11 @@ public class Controller_Player : MonoBehaviour
     private void Movement()
     {
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
-        transform.LookAt(new Vector3(mousePos.x, 1, mousePos.z));
     }
 
     public Vector3 GetLastAngle()
-    {
+    {   
+        //Obtencion del ultimo angulo en el que se movio el jugador
         if (Input.GetKey(KeyCode.W))
         {
             shootAngle = Vector3.forward;
