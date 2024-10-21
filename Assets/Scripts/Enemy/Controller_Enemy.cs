@@ -14,19 +14,22 @@ public class Controller_Enemy : MonoBehaviour
     public float patrolDistance = 5;
     public float destinationTime = 4;
     public float enemySpeed;
+    private Vector3 startPos;
 
     void Start()
     {
         render = GetComponent<Renderer>();
         Restart._Restart.OnRestart += Reset;
         destination = new Vector3(UnityEngine.Random.Range(-10, 12), 1, UnityEngine.Random.Range(-12, 9));
+        startPos = this.transform.position;
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.Find("PP");
     }
 
-    public void Reset()
+    private void Reset()
     {
-        Destroy(this.gameObject);
+        //Para reiniciar la posicion del Player
+        this.transform.position = startPos;
     }
 
     //internal virtual void OnCollisionEnter(Collision collision)
