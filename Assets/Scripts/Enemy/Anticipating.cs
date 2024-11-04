@@ -10,7 +10,7 @@
         if (player != null)
         {
             Controller_Player p = player.GetComponent<Controller_Player>();
-            agent.SetDestination(player.transform.position + p.GetLastAngle() * 2);
+            agent.SetDestination(player.transform.position + p.GetLastAngle() * 10);
         }
     }
 }
